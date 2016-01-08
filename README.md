@@ -1,2 +1,2 @@
 # ProgrammingCase2
-School Project
+Created by: Kenneth, Christian, Christian, Frederik.
