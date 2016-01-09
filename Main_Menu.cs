@@ -1,8 +1,7 @@
 /*
 ========================================
 Title: Case 2
-Created by: Christian H.L, Christian L, Kenneth H. &
-Frederik 2.
+Created by: Christian H. L., Christian L., Kenneth H. & Frederik
 ========================================
 */
 using System;
@@ -24,8 +23,8 @@ namespace Case_2
             string menu;
 
             //gudie to what user can do in program
-            Console.WriteLine("Velkommen til info skræmen bruger. valg et punkt ved at trykke 1 , 2 , 3 , 4");
-            Console.WriteLine("");
+            Console.Write("Velkommen til info skræmen bruger.\n\nvalg et punkt ved at trykke 1 , 2 , 3 , 4\n\n");
+            Console.Write("1. Temperaturmåler.\n2.Valutaberegner\n3. Programoversigt.\nValgfri emne.")
             menu = Console.ReadLine();
 
             //user info make action
@@ -51,6 +50,22 @@ namespace Case_2
             //
             Console.ReadKey();
 
+        }
+        static void Temperatur_Converter()
+        {
+            //code for the Temperatur converter
+        }
+        static void Valuta_Converter()
+        {
+            //code for the Valuta Converter
+        }
+        static void Program_Content()
+        {
+            //code for the Program content 
+        }
+        static void FreeToChooseTopic()
+        {
+            //code for the Free to choose topic
         }
     }
 }
