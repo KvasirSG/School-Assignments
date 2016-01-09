@@ -1,3 +1,8 @@
+/*
+=========================
+ADD A HEADER
+=========================
+*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +15,13 @@ namespace Case.valutaberegner
     {
         static void Main(string[] args)
         {
+            //Variables
             double Beløb_DKK = 0;
             double Beløb_USD = 0;
             double Beløb_Euro = 0;
             string valg;
-
+            
+            //code
             Console.Write("Valg af converter \n \n1. convert DKK. \n2. convert USD. \n3. convert Euro. \n\n");
             valg = Console.ReadLine();
             switch (valg)
