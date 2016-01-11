@@ -1,3 +1,10 @@
+/*
+================================================
+Title: Enhanced Main Menu
+Created by: Kenneth H.
+Edited and corrected by Flix aka TheMasterCoder
+================================================
+*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,25 +20,33 @@ namespace Menu_boxes
             Menu("Main");
             Console.ReadKey();
         }
-        static void box(int x, int y)
+        //box creation code
+        static void box(int x, int y)// x,y = hight and width of the box
         {
-            int start_y = 0;
-            int mid_window = Console.WindowWidth / 2;
+            //variables
+            int start_y = 0; //preset the box from top --default at 0
+            int mid_window = Console.WindowWidth / 2; // the center of the box
+
+            //code
+            //top line
             for (int i = 0; i <= x; i++)
             {
-                Console.SetCursorPosition(mid_window - i, start_y);
+                Console.SetCursorPosition(mid_window - i, start_y); //top left line
                 box_write("vandret");
-                Console.SetCursorPosition(mid_window + i, start_y);
+                Console.SetCursorPosition(mid_window + i, start_y); //top right line
                 box_write("vandret");
             }
 
+            //right and left line
             for (int i = 1; i <= y; i++)
             {
-                Console.SetCursorPosition(mid_window - x, start_y + i);
+                Console.SetCursorPosition(mid_window - x, start_y + i); //left line
                 box_write("lodret");
-                Console.SetCursorPosition(mid_window + x, start_y + i);
+                Console.SetCursorPosition(mid_window + x, start_y + i); //right line
                 box_write("lodret");
             }
+
+            // bottom line
             for (int i = 0; i <= x; i++)
             {
                 Console.SetCursorPosition(mid_window - i, start_y + y);
@@ -48,12 +63,14 @@ namespace Menu_boxes
             Console.SetCursorPosition(mid_window + x, start_y + y);
             box_write("bhkant");
         }
+        //Menu
         static void Menu(string menu)
         {
+            //variables
             int start_y = 0, x, y;
             int mid_window = Console.WindowWidth / 2;
-            string[] Main = { "Temperatur Omregner", "Valuta Omregner", "ProgramOversigt" };
-            string title;
+            string[] Main = { "Temperatur Omregner", "Valuta Omregner", "ProgramOversigt" }; //array for main menu
+            string title; //name the menu
 
             switch (menu)
             {
@@ -62,8 +79,10 @@ namespace Menu_boxes
                     x = 24 / 2;
                     y = 9;
                     int tal = 0;
-                    box(x, y);
-                    MenuTitle(title, start_y);
+                    box(x, y); //draw the box
+                    MenuTitle(title, start_y); //set the title
+
+                    // placing the menu array
                     for (int i = 0; i < 3; i++)
                     {
                         tal = i + 1;
@@ -77,19 +96,20 @@ namespace Menu_boxes
             }
 
         }
+        //define the code for the lines
         static void box_write(string kant)
         {
-            string tvkant = "\x250C"; //Top venstre hjørne på ramme
+            string tvkant = "\x250C"; //Top left corner of the frame
 
-            string thkant = "\x2510"; //Top højre hjørne på ramme
+            string thkant = "\x2510"; //Top right corner of the frame
 
-            string bvkant = "\x2514"; //Bund venstre hjørne på ramme
+            string bvkant = "\x2514"; //Bottom left corner of the frame
 
-            string bhkant = "\x2518"; //Bund højre hjørne på ramme
+            string bhkant = "\x2518"; //Bottom right corner of the frame
 
-            string lodret = "\x2502"; //ramme - lodret
+            string lodret = "\x2502"; //Frame line - vertical
 
-            string vandret = "\x2500"; //ramme - vandret
+            string vandret = "\x2500"; //Frame line - Horizontal
             switch (kant)
             {
                 case "tvkant":
@@ -114,6 +134,8 @@ namespace Menu_boxes
                     break;
             }
         }
+
+        //main menu choose options
         static void MainMenu(int x, int y, int start_y)
         {
             int mid_window = Console.WindowWidth / 2;
@@ -139,6 +161,7 @@ namespace Menu_boxes
                     break;
             }
         }
+        //sets the title in top middle of the box
         static void MenuTitle(string title, int start_y)
         {
             int mid_window = Console.WindowWidth / 2;
