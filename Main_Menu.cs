@@ -24,7 +24,7 @@ namespace Case_2
 
             //gudie to what user can do in program
             Console.Write("Velkommen til info skræmen bruger.\n\nvalg et punkt ved at trykke 1 , 2 , 3 , 4\n\n");
-            Console.Write("1. Temperaturmåler.\n2.Valutaberegner\n3. Programoversigt.\nValgfri emne.")
+            Console.Write("1. Temperaturmåler.\n2.Valutaberegner\n3. Programoversigt.\nValgfri emne.");
             menu = Console.ReadLine();
 
             //user info make action
