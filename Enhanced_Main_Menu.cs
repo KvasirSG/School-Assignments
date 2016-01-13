@@ -21,10 +21,9 @@ namespace Menu_boxes
             Console.ReadKey();
         }
         //box creation code
-        static void box(int x, int y)// x,y = hight and width of the box
+        static void box(int start_y,int x, int y)// x,y = hight and width of the box preset the box from top --default at 0
         {
             //variables
-            int start_y = 0; //preset the box from top --default at 0
             int mid_window = Console.WindowWidth / 2; // the center of the box
 
             //code
@@ -69,27 +68,31 @@ namespace Menu_boxes
             //variables
             int start_y = 0, x, y;
             int mid_window = Console.WindowWidth / 2;
+            int tal = 0;
             string[] Main = { "Temperatur Omregner", "Valuta Omregner", "ProgramOversigt" }; //array for main menu
+            string[] Menu_item;
             string title; //name the menu
 
             switch (menu)
             {
                 case "Main":
+                    Console.Clear();
                     title = "<Main Menu>";
-                    x = 24 / 2;
-                    y = 9;
-                    int tal = 0;
-                    box(x, y); //draw the box
+                    Menu_item = Main;
+                    x = 30 / 2;
+                    y = Menu_item.Length*2+3;
+                    box(start_y,x, y); //draw the box
                     MenuTitle(title, start_y); //set the title
 
                     // placing the menu array
-                    for (int i = 0; i < 3; i++)
+                    for (int i = 0; i < Menu_item.Length; i++)
                     {
                         tal = i + 1;
                         Console.SetCursorPosition(mid_window - x + 1, start_y + 3 + (i * 2));
                         Console.Write("{0}. {1}", tal, Main[i]);
                     }
-                    MainMenu(x, y, start_y);
+                    box(y + 2, 2, 2);
+                    MainMenu(x, y, y+3);
                     break;
                 default:
                     break;
@@ -140,24 +143,32 @@ namespace Menu_boxes
         {
             int mid_window = Console.WindowWidth / 2;
             string valg;
-            Console.SetCursorPosition(mid_window - x + 1, y + 2);
+            Console.SetCursorPosition(mid_window - x + 1, y + 1);
             Console.Write("Vælg punkt: ");
-            Console.SetCursorPosition(mid_window - x + 1, y + 3);
+        Console.SetCursorPosition(mid_window, start_y);
             valg = Console.ReadLine();
             switch (valg)
             {
                 case "1":
                     Console.WriteLine("Temperaturmåler");
+                    Console.ReadKey();
+                    Menu("Main");
                     break;
                 case "2":
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("valutaberegner"); ;
+                    Console.ReadKey();
+                    Menu("Main");
                     break;
                 case "3":
                     Console.WriteLine("Programoversigt"); ;
+                    Console.ReadKey();
+                    Menu("Main");
                     break;
                 case "4":
                     Console.WriteLine("Valgfri emne"); ;
+                    Console.ReadKey();
+                    Menu("Main");
                     break;
             }
         }
