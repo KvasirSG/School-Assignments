@@ -1,8 +1,7 @@
 /*
 ================================================
-Title: Enhanced Main Menu
-Created by: Kenneth H.
-Edited and corrected by Flix aka TheMasterCoder
+Title: Case 2
+Created by: Kenneth H., Christian H. L., Christian L. and Frederik W.
 ================================================
 */
 using System;
