@@ -1,7 +1,8 @@
 /*
 ================================================
-Title: Case 2
+Title: Case2
 Created by: Kenneth H., Christian H. L., Christian L. and Frederik W.
+Edited and corrected by Flix aka TheMasterCoder
 ================================================
 */
 using System;
@@ -70,6 +71,7 @@ namespace Menu_boxes
             int tal = 0;
             string[] Main = { "Temperatur Omregner", "Valuta Omregner", "ProgramOversigt" }; //array for main menu
             string[] Temp_Conv= { "Convert Celcius to fahrenheit.", "Convert fahrenheit to Celcius." };
+            string[] Valu_Conv = { "convert DKK til USD og Euro.", "Convert USD til DKK og Euro.", "Convert Euro til DKK og USD." };
             string[] Menu_item;
             string title; //name the menu
 
@@ -111,6 +113,24 @@ namespace Menu_boxes
                     }
                     box(y + 2, 2, 2);
                     Temperatur_converter(x, y,y+3);
+                    break;
+                case "Valu_Conv":
+                    Console.Clear();
+                    title = "<Valuta Converter>";
+                    Menu_item = Valu_Conv;
+                    x = 36 / 2;
+                    y = Menu_item.Length * 2 + 3;
+                    box(start_y, x, y); //draw the box
+                    MenuTitle(title, start_y); //set the title
+
+                    for (int i = 0; i < Menu_item.Length; i++)
+                    {
+                        tal = i + 1;
+                        Console.SetCursorPosition(mid_window - x + 1, start_y + 3 + (i * 2));
+                        Console.Write("{0}. {1}", tal, Menu_item[i]);
+                    }
+                    box(y + 2, 2, 2);
+                    valu_conv(x, y, y + 3);
                     break;
                 default:
                     break;
@@ -171,8 +191,7 @@ namespace Menu_boxes
                     Menu("Temp_Conv");
                     break;
                 case "2":
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("valutaberegner"); ;
+                    Menu("Valu_Conv");
                     break;
                 case "3":
                     Console.WriteLine("Programoversigt"); ;
@@ -221,6 +240,8 @@ namespace Menu_boxes
                     box(6, 6, 2);
                     Console.SetCursorPosition(mid_window - 2, 7);
                     Console.WriteLine("{0}{1}F",fahrenheit,temperatur_symbol);
+
+
                     break;
 
                 case "2":
@@ -246,5 +267,90 @@ namespace Menu_boxes
             Console.ReadKey();
             Menu("Main");
         }
+        static void valu_conv(int x, int y, int start_y)
+        {
+            double Beløb_DKK = 0, Beløb_USD = 0, Beløb_Euro = 0;
+            int mid_window = Console.WindowWidth / 2;
+            string valg;
+
+            Console.SetCursorPosition(mid_window - x + 1, y + 1);
+            Console.Write("Vælg Converter: ");
+            Console.SetCursorPosition(mid_window, start_y);
+
+            valg = Console.ReadLine();
+            switch (valg)
+            {
+                case "1":
+
+                    Console.Clear();
+                    box(0, 8, 15);
+                    Console.SetCursorPosition(mid_window - 5, 1);
+                    Console.WriteLine("Beløb i DKK:");
+                    box(2, 4, 2);
+                    Console.SetCursorPosition(mid_window - 3, 3);
+                    Beløb_DKK = double.Parse(Console.ReadLine());
+                
+                    Beløb_Euro = Beløb_DKK * 0.134;
+                    Console.SetCursorPosition(mid_window-5, 6);
+                    Console.WriteLine("Euro:");
+                    box(7, 6, 2);
+                    Console.SetCursorPosition(mid_window - 4, 8);
+                    Console.WriteLine("{0:N2} EUR", Beløb_Euro);
+                    Console.SetCursorPosition(mid_window - 5, 10);
+                    Console.WriteLine("US Dollar:");
+                    box(11,6,2);
+                    Console.SetCursorPosition(mid_window - 4, 12);
+                    Beløb_USD = Beløb_DKK * 0.146;
+                    Console.WriteLine("{0:N2} USD",Beløb_USD);
+                    break;
+
+                case "2":
+                    Console.Clear();
+                    box(0, 8, 15);
+                    Console.SetCursorPosition(mid_window - 5, 1);
+                    Console.WriteLine("Beløb USD:");
+                    box(2, 4, 2);
+                    Console.SetCursorPosition(mid_window - 3, 3);
+                    Beløb_USD = double.Parse(Console.ReadLine());
+                    Beløb_DKK = Beløb_USD * 6.8;
+                    Console.SetCursorPosition(mid_window - 6, 6);
+                    Console.WriteLine("Danske Kroner:");
+                    box(7, 6, 2);
+                    Console.SetCursorPosition(mid_window - 4, 8);
+                    Console.WriteLine("{0:N2} DKK",Beløb_DKK);
+                    Console.SetCursorPosition(mid_window - 5, 10);
+                    Console.WriteLine("Euro:");
+                    box(11, 6, 2);
+                    Console.SetCursorPosition(mid_window - 4, 12);
+                    Beløb_Euro = Beløb_USD * 0.91;
+                    Console.WriteLine("{0:N2} EUR",Beløb_Euro);
+                    break;
+
+                case "3":
+                    Console.Clear();
+                    box(0, 8, 15);
+                    Console.SetCursorPosition(mid_window - 5, 1);
+                    Console.WriteLine("Beløb EUR:");
+                    box(2, 4, 2);
+                    Console.SetCursorPosition(mid_window - 3, 3);
+                    Beløb_Euro = double.Parse(Console.ReadLine());
+                    Beløb_DKK = Beløb_Euro * 7.4;
+                    Console.SetCursorPosition(mid_window - 6, 6);
+                    Console.WriteLine("Danske Kroner:");
+                    box(7, 6, 2);
+                    Console.SetCursorPosition(mid_window - 4, 8);
+                    Console.WriteLine("{0:N2} DKK", Beløb_DKK);
+                    Console.SetCursorPosition(mid_window - 5, 10);
+                    Console.WriteLine("US Dollar:");
+                    box(11, 6, 2);
+                    Console.SetCursorPosition(mid_window - 4, 12);
+                    Beløb_USD = Beløb_Euro * 1.08;
+                    Console.WriteLine("{0:N2} USD", Beløb_USD);
+                    break;
+            }
+            Console.ReadKey();
+            Menu("Main");
+        }
     }
+    
 }
