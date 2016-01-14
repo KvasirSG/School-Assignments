@@ -17,6 +17,7 @@ namespace Menu_boxes
     {
         static void Main(string[] args)
         {
+            Console.CursorVisible = false;
             Menu("Main");
             Console.ReadKey();
         }
@@ -131,6 +132,8 @@ namespace Menu_boxes
                     }
                     box(y + 2, 2, 2);
                     valu_conv(x, y, y + 3);
+                    break;
+                case "Pro_Ove":
                     break;
                 default:
                     break;
