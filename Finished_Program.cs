@@ -2,7 +2,7 @@
 ================================================
 Title: Case2
 Created by: Kenneth H., Christian H. L., Christian L. and Frederik W.
-Edited and corrected by Flix aka TheMasterCoder
+Edited and corrected by Flix aka TheMasterCoder and Anastasiya aka Tasiya
 ================================================
 */
 using System;
@@ -22,7 +22,7 @@ namespace Menu_boxes
             Console.ReadKey();
         }
         //box creation code
-        static void box(int start_y,int x, int y)// x,y = hight and width of the box preset the box from top --default at 0
+        static void box(int start_y, int x, int y)// x,y = hight and width of the box preset the box from top --default at 0
         {
             //variables
             int mid_window = Console.WindowWidth / 2; // the center of the box
@@ -70,9 +70,12 @@ namespace Menu_boxes
             int start_y = 0, x, y;
             int mid_window = Console.WindowWidth / 2;
             int tal = 0;
-            string[] Main = { "Temperatur Omregner", "Valuta Omregner", "ProgramOversigt" }; //array for main menu
-            string[] Temp_Conv= { "Convert Celcius to fahrenheit.", "Convert fahrenheit to Celcius." };
+            string[] Main = { "Temperatur Omregner", "Valuta Omregner", "ProgramOversigt", "Location" }; //array for main menu
+            string[] Temp_Conv = { "Convert Celcius to fahrenheit.", "Convert fahrenheit to Celcius." };
             string[] Valu_Conv = { "convert DKK til USD og Euro.", "Convert USD til DKK og Euro.", "Convert Euro til DKK og USD." };
+            string[] oversigt_names = { "Ac/dc", "Justin biber", "Eminem" };
+            string[] oversigt_time = { "16.00 kl", "20.00 kl", "24.00 kl" };
+            string[] location = { "Pavilion","Arena","Avalon","Orange scene", "?????"};
             string[] Menu_item;
             string title; //name the menu
 
@@ -83,8 +86,8 @@ namespace Menu_boxes
                     title = "<Main Menu>";
                     Menu_item = Main;
                     x = 30 / 2;
-                    y = Menu_item.Length*2+3;
-                    box(start_y,x, y); //draw the box
+                    y = Menu_item.Length * 2 + 3;
+                    box(start_y, x, y); //draw the box
                     MenuTitle(title, start_y); //set the title
 
                     // placing the menu array
@@ -95,7 +98,7 @@ namespace Menu_boxes
                         Console.Write("{0}. {1}", tal, Menu_item[i]);
                     }
                     box(y + 2, 2, 2);
-                    MainMenu(x, y, y+3);
+                    MainMenu(x, y, y + 3);
                     break;
                 case "Temp_Conv":
                     Console.Clear();
@@ -113,7 +116,7 @@ namespace Menu_boxes
                         Console.Write("{0}. {1}", tal, Menu_item[i]);
                     }
                     box(y + 2, 2, 2);
-                    Temperatur_converter(x, y,y+3);
+                    Temperatur_converter(x, y, y + 3);
                     break;
                 case "Valu_Conv":
                     Console.Clear();
@@ -134,6 +137,67 @@ namespace Menu_boxes
                     valu_conv(x, y, y + 3);
                     break;
                 case "Pro_Ove":
+                    Console.Clear();
+                    title = "<ProgramOversigt>";
+                    Menu_item = oversigt_names;
+                    x = 30 / 2;
+                    y = Menu_item.Length * 2 + 3;
+                    box(start_y, x, y); //draw the box
+                    MenuTitle(title, start_y); //set the title
+
+                    for (int i = 0; i < Menu_item.Length; i++)
+                    {
+                        tal = i + 1;
+                        Console.SetCursorPosition(mid_window - x + 1, start_y + 3 + (i * 2));
+                        Console.Write(oversigt_names[i] + " : " + oversigt_time[i]);
+                    }
+                    Console.ReadKey();
+                    Menu("Main");
+                    break;
+                case "valgfri_emne":
+                    Console.Clear();
+                    title = "<Location>";
+                    Menu_item = location;
+                    x = 30 / 2;
+                    y = Menu_item.Length * 2 + 3;
+                    box(start_y, x, y); //draw the box
+                    MenuTitle(title, start_y); //set the title
+
+                    // placing the menu array
+                    for (int i = 0; i < Menu_item.Length; i++)
+                    {
+                        tal = i + 1;
+                        Console.SetCursorPosition(mid_window - x + 1, start_y + 3 + (i * 2));
+                        Console.Write("{0}. {1}", tal, Menu_item[i]);
+                    }
+                    box(y + 2, 2, 2);
+                    Console.SetCursorPosition(mid_window, y+3);
+                    string sum;
+                    sum = (Console.ReadLine());
+                    Console.Clear();
+                    switch (sum)
+                    {
+                        case "1":
+                            Console.WriteLine("\n :Wc er 200m fra dig \n :Orange scene er 400m nær dig \n :øl bod er 900m er nær dig  ");
+                            break;
+                        case "2":
+                            Console.WriteLine("\n :Wc er 600m fra dig \n :Orange scene er 200m nær dig \n :øl bod er 100m er nær dig");
+                            break;
+                        case "3":
+                            Console.WriteLine("\n :Wc er 700m fra dig \n :Orange scene er 600m nær dig \n :øl bod er 300m er nær dig");
+                            break;
+                        case "4":
+                            Console.WriteLine("\n :Wc er 500m fra dig \n :Orange scene er 0m nær dig \n :øl bod er 100m er nær dig");
+                            break;
+                        case "5":
+                            Console.WriteLine("\n :?????");
+                            System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+                            break;
+                        default:
+                            break;
+                    }
+                    Console.ReadKey();
+                    Menu("Main");
                     break;
                 default:
                     break;
@@ -186,7 +250,7 @@ namespace Menu_boxes
             string valg;
             Console.SetCursorPosition(mid_window - x + 1, y + 1);
             Console.Write("Vælg punkt: ");
-        Console.SetCursorPosition(mid_window, start_y);
+            Console.SetCursorPosition(mid_window, start_y);
             valg = Console.ReadLine();
             switch (valg)
             {
@@ -197,14 +261,10 @@ namespace Menu_boxes
                     Menu("Valu_Conv");
                     break;
                 case "3":
-                    Console.WriteLine("Programoversigt"); ;
-                    Console.ReadKey();
-                    Menu("Main");
+                    Menu("Pro_Ove");
                     break;
                 case "4":
-                    Console.WriteLine("Valgfri emne"); ;
-                    Console.ReadKey();
-                    Menu("Main");
+                    Menu("valgfri_emne");
                     break;
             }
         }
@@ -232,17 +292,17 @@ namespace Menu_boxes
                 case "1":
                     Console.Clear();
                     box(0, 7, 10);
-                    Console.SetCursorPosition(mid_window-4, 1);
+                    Console.SetCursorPosition(mid_window - 4, 1);
                     Console.WriteLine("Indtast{0}C", temperatur_symbol);
                     box(2, 4, 2);
-                    Console.SetCursorPosition(mid_window-3, 3);
+                    Console.SetCursorPosition(mid_window - 3, 3);
                     celsius = double.Parse(Console.ReadLine());
                     fahrenheit = celsius * 9 / 5 + 32;
                     Console.SetCursorPosition(mid_window - 4, 5);
                     Console.WriteLine("Resultat:");
                     box(6, 6, 2);
                     Console.SetCursorPosition(mid_window - 2, 7);
-                    Console.WriteLine("{0}{1}F",fahrenheit,temperatur_symbol);
+                    Console.WriteLine("{0}{1}F", fahrenheit, temperatur_symbol);
 
 
                     break;
@@ -261,7 +321,7 @@ namespace Menu_boxes
                     Console.WriteLine("Resultat:");
                     box(6, 6, 2);
                     Console.SetCursorPosition(mid_window - 4, 7);
-                    Console.WriteLine("{0:N2}{1}C",celsius,temperatur_symbol);
+                    Console.WriteLine("{0:N2}{1}C", celsius, temperatur_symbol);
 
                     //celsius
                     break;
@@ -292,19 +352,19 @@ namespace Menu_boxes
                     box(2, 4, 2);
                     Console.SetCursorPosition(mid_window - 3, 3);
                     Beløb_DKK = double.Parse(Console.ReadLine());
-                
+
                     Beløb_Euro = Beløb_DKK * 0.134;
-                    Console.SetCursorPosition(mid_window-5, 6);
+                    Console.SetCursorPosition(mid_window - 5, 6);
                     Console.WriteLine("Euro:");
                     box(7, 6, 2);
                     Console.SetCursorPosition(mid_window - 4, 8);
                     Console.WriteLine("{0:N2} EUR", Beløb_Euro);
                     Console.SetCursorPosition(mid_window - 5, 10);
                     Console.WriteLine("US Dollar:");
-                    box(11,6,2);
+                    box(11, 6, 2);
                     Console.SetCursorPosition(mid_window - 4, 12);
                     Beløb_USD = Beløb_DKK * 0.146;
-                    Console.WriteLine("{0:N2} USD",Beløb_USD);
+                    Console.WriteLine("{0:N2} USD", Beløb_USD);
                     break;
 
                 case "2":
@@ -320,13 +380,13 @@ namespace Menu_boxes
                     Console.WriteLine("Danske Kroner:");
                     box(7, 6, 2);
                     Console.SetCursorPosition(mid_window - 4, 8);
-                    Console.WriteLine("{0:N2} DKK",Beløb_DKK);
+                    Console.WriteLine("{0:N2} DKK", Beløb_DKK);
                     Console.SetCursorPosition(mid_window - 5, 10);
                     Console.WriteLine("Euro:");
                     box(11, 6, 2);
                     Console.SetCursorPosition(mid_window - 4, 12);
                     Beløb_Euro = Beløb_USD * 0.91;
-                    Console.WriteLine("{0:N2} EUR",Beløb_Euro);
+                    Console.WriteLine("{0:N2} EUR", Beløb_Euro);
                     break;
 
                 case "3":
@@ -355,5 +415,5 @@ namespace Menu_boxes
             Menu("Main");
         }
     }
-    
+
 }
