@@ -14,11 +14,10 @@ namespace program_oversigt
 
             string[] names = { "Ac/dc", "Justin biber" , "Eminem" };
             string[] time = { "16.00 kl" , "20.00 kl" , "24.00 kl" };
-            string[] display = new string[3];
 
-            for (int i = 0; i < display.Length; i++)
+            for (int i = 0; i < names.Length; i++)
             {
-                Console.WriteLine(names[i]);
+                Console.WriteLine(names[i]+" : "+time[i]);
             }
 
             Console.ReadKey();
