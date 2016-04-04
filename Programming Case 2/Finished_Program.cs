@@ -2,7 +2,7 @@
 ================================================
 Title: Case2
 Created by: Kenneth H., Christian H. L., Christian L. and Frederik W.
-Edited(Help) by Felix M and Ginn P
+Edited(Help) by: Felix M and Ginn P
 ================================================
 */
 using System;
