@@ -1,0 +1,10 @@
+c:\users\kenne\onedrive\dokumenter\visual studio 2015\Projects\TCP_IP Test\TCP_IP Test\bin\Debug\TCP_IP Test.exe.config
+c:\users\kenne\onedrive\dokumenter\visual studio 2015\Projects\TCP_IP Test\TCP_IP Test\bin\Debug\TCP_IP Test.exe
+c:\users\kenne\onedrive\dokumenter\visual studio 2015\Projects\TCP_IP Test\TCP_IP Test\bin\Debug\TCP_IP Test.pdb
+c:\users\kenne\onedrive\dokumenter\visual studio 2015\Projects\TCP_IP Test\TCP_IP Test\obj\Debug\TCP_IP Test.csprojResolveAssemblyReference.cache
+c:\users\kenne\onedrive\dokumenter\visual studio 2015\Projects\TCP_IP Test\TCP_IP Test\obj\Debug\TCP_IP_Test.Form1.resources
+c:\users\kenne\onedrive\dokumenter\visual studio 2015\Projects\TCP_IP Test\TCP_IP Test\obj\Debug\TCP_IP_Test.Properties.Resources.resources
+c:\users\kenne\onedrive\dokumenter\visual studio 2015\Projects\TCP_IP Test\TCP_IP Test\obj\Debug\TCP_IP Test.csproj.GenerateResource.Cache
+c:\users\kenne\onedrive\dokumenter\visual studio 2015\Projects\TCP_IP Test\TCP_IP Test\obj\Debug\TCP_IP Test.exe
+c:\users\kenne\onedrive\dokumenter\visual studio 2015\Projects\TCP_IP Test\TCP_IP Test\obj\Debug\TCP_IP Test.pdb
+C:\Users\kenne\OneDrive\Dokumenter\Visual Studio 2015\Projects\TCP_IP Test\TCP_IP Test\obj\Debug\TCP_IP_Test.Form_help.resources
